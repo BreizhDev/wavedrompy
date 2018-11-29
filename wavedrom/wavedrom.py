@@ -1165,15 +1165,15 @@ class WaveDrom(object):
 
         return svg_output
 
-    ############################à
+    ############################
     def typeStyle(t=""):
         style = {
-            "2":0
-            "3":80
-            "4":170
-            "5":45
-            "6":126
-            "7":215
+            "2":0,
+            "3":80,
+            "4":170,
+            "5":45,
+            "6":126,
+            "7":215,
         }
         if(t in style):
             return ';fill:hsl({},100%,50%)'.format(style[t])
@@ -1200,20 +1200,21 @@ class WaveDrom(object):
         vspace = opt.vspace
         mod = opt.mod
         res = container.g(stroke="black;stroke-width=1;stoke-linecap=round", transfrom=Transform.translate(0,vspace/4))
-        
+
         res.add(hline(hspace))
         res.add(vline(vspace/2))
         res.add(hline(hspace, 0, vspace/2))
-        
+
         i = opt.index*opt.mod
         j = opt.mod
-        
-        for :
+
+        for j in reversed(range(opt.mod+1,1)):
             if j == opt.mod or :
                 res.add(vline(vspace/2, j*(hspace/mod)))
             else:
                 res.add(vline(vlace/16),j*(hspace/mod))
                 res.add(vline(vlace/16),j*(hspace/mod), vspace*7/16)
+            i = i + 1
 
         return res
 
