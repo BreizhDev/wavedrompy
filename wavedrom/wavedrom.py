@@ -32,6 +32,7 @@ from . import waveskin, css
 import argparse
 from attrdict import AttrDict
 import svgwrite
+from bitfield import Bitfield
 
 
 class WaveDrom(object):
@@ -1239,13 +1240,17 @@ def main(args=None):
     outputfile = args.svg
 
     wavedrom = WaveDrom()
+    bitfield = Bitfield()
     if not inputfile or not outputfile:
         parser.print_help()
     else:
         with open(inputfile, "r") as f:
             jinput = json.load(f)
 
-        output = wavedrom.renderWaveForm(0, jinput)
+        if "reg" in jinput:
+            output = bitfield.render(jinput, jinput["reg"])
+        else:
+            output = wavedrom.renderWaveForm(0, jinput)
         # wavedrom.renderWaveForm(0, jinput, output)
 
         # svg_output = wavedrom.convert_to_svg(output)
