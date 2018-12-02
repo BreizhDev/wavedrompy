@@ -202,22 +202,33 @@ class Bitfield(object):
 
 
     @staticmethod
-    def isIntGTorDefault(val, min, default):
-        if val > min:
-            return val
+    def isIntGTorDefault(dic, key, min, default):
+        value = dic.get(key,default)
+        if value > min:
+            return value
         else:
             return default
 
-    def render(self, desc, opt):
-        opt.vspace = self.isIntGTorDefault(opt.vspace, 19, 80)
-        opt.hspace = self.isIntGTorDefault(opt.hspace, 39, 640)
-        opt.lanes = self.isIntGTorDefault(opt.lanes, 0, 2)
-        opt.bits = self.isIntGTorDefault(opt.bits, 4, 32)
-        opt.fontsize = self.isIntGTorDefault(opt.fontsize, 5, 14)
+    def render(self, desc, conf):
+        opt = AttrDict({
+            "bigendian": True,
+            "hspace": 640,
+            "vspace": 80,
+            "lanes":  2,
+            "bits":   32,
+            "fontsize":   14,
+            "fontfamily": 'sans-serif',
+            "fontweight": 'normal',
+        })
+        opt.vspace = self.isIntGTorDefault(conf, "vspace", 19, 80)
+        opt.hspace = self.isIntGTorDefault(conf, "hspace", 39, 640)
+        opt.lanes = self.isIntGTorDefault(conf, "lanes", 0, 2)
+        opt.bits = self.isIntGTorDefault(conf, "bits", 4, 32)
+        opt.fontsize = self.isIntGTorDefault(conf, "fontsize", 5, 14)
 
-        opt.bigendian = opt.bigendian or False
-        opt.fontfamily = opt.fontfamily
-        opt.fontweight = opt.fontweight
+        opt.bigendian = conf.get("bigendian", False)
+        opt.fontfamily = conf.get("fontfamily", "sans-serif")
+        opt.fontweight = conf.get("fontweight", "normal")
 
         res = svgwrite.Drawing(
             size = ((opt.hspace + 9),(opt.vspace * opt.lanes + 5)),
