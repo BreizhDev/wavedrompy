@@ -245,17 +245,3 @@ class Bitfield(object):
             res.add(self.lane(desc,opt))
 
         return res
-
-if __name__ == "__main__":
-    x = Bitfield()
-    opt = x.opt
-    desc = [
-    { "name": "IPO",   "bits": 8, "attr": "RO" },
-    {                  "bits": 7 },
-    { "name": "BRK",   "bits": 5, "attr": "RW", "type": 4 },
-    { "name": "CPK",   "bits": 1 },
-    { "name": "Clear", "bits": 3 },
-    { "bits": 8 }
-]
-    d = x.render(desc,opt)
-    d.save(pretty=True)
