@@ -17,18 +17,6 @@ class Bitfield(object):
         "tspan": svgwrite.text.TSpan,
         "line": svgwrite.shapes.Line,
     })
-    opt = AttrDict({
-        #"index":  0,
-        "bigendian": True,
-        "hspace": 640,
-        "vspace": 80,
-        "lanes":  2,
-        "bits":   32,
-        #"mod":    0,
-        "fontsize":   14,
-        "fontfamily": 'sans-serif',
-        "fontweight": 'normal',
-    })
 
     @staticmethod
     def typeStyle(t=""):
@@ -145,6 +133,7 @@ class Bitfield(object):
                 )
                 attrstxt.add(self.element.tspan(e["attr"]))
                 attrs.add(attrstxt)
+
         res = self.container.g()
         res.add(blanks)
         res.add(bits)
