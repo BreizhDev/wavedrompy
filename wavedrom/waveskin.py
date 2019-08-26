@@ -1,3 +1,29 @@
+# The MIT License (MIT)
+#
+# Copyright (c) 2011-2018 Aliaksei Chapyzhenka
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+#
+# Translated to Python from original file:
+# https://github.com/drom/wavedrom/blob/master/src/WaveDrom.js
+#
+
 from . import css
 WaveSkin = {}
 
@@ -422,10 +448,10 @@ WaveSkin['default'] = ["svg", {"id": "svg", "xmlns": "http://www.w3.org/2000/svg
                          ["path", {"d": "M0,0 -15,0", "class": "s12"}]
                          ],
                         ["marker", {"id": "arrowhead", "style": "fill:#0041c4", "markerHeight": "7", "markerWidth": "10", "markerUnits": "strokeWidth",
-                                    "viewBox": "0 -4 11 8", "refX": "15", "refY": "0", "orient": "auto"},
+                                    "viewBox": "0 -4 11 8", "refX": "10", "refY": "0", "orient": "auto"},
                          ["path", {"d": "M0 -4 11 0 0 4z"}]
                          ],
-                        ["marker", {"id": "arrowtail", "style": "fill:#0041c4", "markerHeight": "7", "markerWidth": "10", "markerUnits": "strokeWidth", "viewBox": "-11 -4 11 8", "refX": "-15", "refY": "0", "orient": "auto"},
+                        ["marker", {"id": "arrowtail", "style": "fill:#0041c4", "markerHeight": "7", "markerWidth": "10", "markerUnits": "strokeWidth", "viewBox": "-11 -4 11 8", "refX": "-10", "refY": "0", "orient": "auto"},
                          ["path", {"d": "M0 -4 -11 0 0 4z"}]
                          ]
                         ],
@@ -682,6 +708,6 @@ WaveSkin['narrow'] = ["svg", {"id": "svg", "xmlns": "http://www.w3.org/2000/svg"
                        ["g", {"id": "vmv-2-2"}, ["path", {"d": "M 7,0 10,0 10,20 7,20 4,10 z", "class": "s10"}], ["path", {"d": "M 1,0 0,0 0,20 1,20 4,10 z",
                                                                                                                            "class": "s10"}], ["path", {"d": "m 0,0 1,0 6,20 3,0", "class": "s1"}], ["path", {"d": "M 0,20 1,20 7,0 10,0", "class": "s1"}]],
                        ["marker", {"id": "arrowhead", "style": "fill:#0041c4", "markerHeight": "7", "markerWidth": "10", "markerUnits": "strokeWidth",
-                                   "viewBox": "0 -4 11 8", "refX": "15", "refY": "0", "orient": "auto"}, ["path", {"d": "M0 -4 11 0 0 4z"}]],
-                       ["marker", {"id": "arrowtail", "style": "fill:#0041c4", "markerHeight": "7", "markerWidth": "10", "markerUnits": "strokeWidth", "viewBox": "-11 -4 11 8", "refX": "-15", "refY": "0", "orient": "auto"}, ["path", {"d": "M0 -4 -11 0 0 4z"}]]],
+                                   "viewBox": "0 -4 11 8", "refX": "10", "refY": "0", "orient": "auto"}, ["path", {"d": "M0 -4 11 0 0 4z"}]],
+                       ["marker", {"id": "arrowtail", "style": "fill:#0041c4", "markerHeight": "7", "markerWidth": "10", "markerUnits": "strokeWidth", "viewBox": "-11 -4 11 8", "refX": "-10", "refY": "0", "orient": "auto"}, ["path", {"d": "M0 -4 -11 0 0 4z"}]]],
                       ["g", {"id": "waves"}, ["g", {"id": "lanes"}], ["g", {"id": "groups"}]]]

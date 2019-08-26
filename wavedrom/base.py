@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 #
-# Copyright (c) 2018 Stefan Wallentowitz
+# Copyright (c) 2016-2018 BreizhGeek, Kazuki Yamamoto, Stefan Wallentowitz
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,41 +21,22 @@
 # THE SOFTWARE.
 #
 
-import argparse
-import json
-
-from .waveform import WaveDrom
-from .assign import Assign
-from .version import version
-from .bitfield import BitField
+import svgwrite
+from attrdict import AttrDict
 
 
-def render(source="", output=[]):
-    source = json.loads(source)
-    if source.get("signal"):
-        return WaveDrom().render_waveform(0, source, output)
-    elif source.get("assign"):
-        return Assign().render(0, source, output)
-    elif source.get("reg"):
-        return BitField().renderJson(source)
-
-
-def main(args=None):
-    if not args:
-        parser = argparse.ArgumentParser(description="")
-        parser.add_argument("--input", "-i", help="<input wavedrom source filename>")
-        parser.add_argument("--svg", "-s", help="<output SVG image file name>")
-        args = parser.parse_args()
-
-    output = []
-    inputfile = args.input
-    outputfile = args.svg
-
-    if not inputfile or not outputfile:
-        parser.print_help()
-    else:
-        with open(inputfile, "r") as f:
-            jinput = f.read()
-
-        output = render(jinput)
-        output.saveas(outputfile)
+class SVGBase(object):
+    container = AttrDict({
+        "defs": svgwrite.container.Defs,
+        "g": svgwrite.container.Group,
+        "marker": svgwrite.container.Marker,
+        "use": svgwrite.container.Use,
+    })
+    element = AttrDict({
+        "rect": svgwrite.shapes.Rect,
+        "path": svgwrite.path.Path,
+        "text": svgwrite.text.Text,
+        "tspan": svgwrite.text.TSpan,
+        "title": svgwrite.base.Title,
+        "line": svgwrite.shapes.Line,
+    })
